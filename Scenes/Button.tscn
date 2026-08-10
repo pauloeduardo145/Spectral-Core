@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/AldotheApache.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="NewGame" type="Button" groups=["button"]]
+margin_right = 172.0
+margin_bottom = 40.0
+focus_mode = 0
+custom_colors/icon_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/icon_color_disabled = Color( 0, 0, 0, 0 )
+custom_colors/icon_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/icon_color_normal = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+enabled_focus_mode = 0
+text = "Novo Jogo"
+flat = true

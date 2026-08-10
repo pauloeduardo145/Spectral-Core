@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Inlanders Demo.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.227451, 0.341176, 0.611765, 1 )
+
+[node name="Logo" type="Label" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -340.0
+margin_top = -56.0
+margin_right = 340.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Spectral Core"
+
+[node name="Sob" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -42.0
+margin_right = 0.0
+margin_bottom = -8.0
+text = "Sobre"
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -154.0
+margin_right = 216.0
+margin_bottom = -6.0
+
+[node name="NewGame" parent="ButtonsContainer" instance=ExtResource( 1 )]
+margin_right = 200.0
+margin_bottom = 34.0
+
+[node name="Continue" parent="ButtonsContainer" instance=ExtResource( 1 )]
+margin_top = 38.0
+margin_right = 200.0
+margin_bottom = 72.0
+text = "Continuar"
+
+[node name="Controls" parent="ButtonsContainer" instance=ExtResource( 1 )]
+margin_top = 76.0
+margin_right = 200.0
+margin_bottom = 110.0
+text = "Controles"
+
+[node name="Quit" parent="ButtonsContainer" instance=ExtResource( 1 )]
+margin_top = 114.0
+margin_right = 200.0
+margin_bottom = 148.0
+text = "Sair"

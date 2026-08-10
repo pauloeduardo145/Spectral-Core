@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sala_Base.png" type="Texture" id=2]
+
+[node name="SalaSul" type="Node2D"]
+
+[node name="Fundo" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Colisoes" type="Node2D" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]

@@ -1,0 +1,139 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/Vera_idle_down.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Vera.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Vera_idle_up.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 9.25, 14.5 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 17, 41 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 18, 0, 17, 41 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 17, 41 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 17, 40 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 3 )
+region = Rect2( 18, 0, 17, 40 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 3 )
+region = Rect2( 36, 0, 17, 40 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 2 )
+region = Rect2( 576, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 2 )
+region = Rect2( 640, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 2 )
+region = Rect2( 704, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=6]
+resource_local_to_scene = true
+resource_name = "idle"
+animations = [ {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 23 ), SubResource( 25 ) ],
+"loop": true,
+"name": "walk_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "walk_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": true,
+"name": "walk_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 22 ) ],
+"loop": true,
+"name": "walk_up",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=38]
+radius = 34.0
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+collision_mask = 14
+script = ExtResource( 4 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 9.5 )
+shape = SubResource( 18 )
+
+[node name="anim" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+animation = "idle_down"
+playing = true
+
+[node name="Camera" type="Camera2D" parent="."]
+visible = false
+current = true
+zoom = Vector2( 0.2, 0.2 )
+
+[node name="location_player" type="Position2D" parent="."]
+
+[node name="Aspirador" type="Area2D" parent="."]
+visible = false
+collision_mask = 2
+
+[node name="Colision" type="CollisionShape2D" parent="Aspirador"]
+position = Vector2( 0, 4 )
+shape = SubResource( 38 )
