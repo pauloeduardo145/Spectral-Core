@@ -31,20 +31,16 @@ func _ready():
 	var spawn = get_node(spawn_atual)
 	
 	player.global_position = spawn.global_position
-	
-	
+		
 	add_child(player)
 	
 
 	Global.spawn_position = spawn.global_position
-
 	
 	interfaces()
 	
 	Hud.visible = true
 	yield(get_tree(), "idle_frame")   #espera 1 frame
-	
-	
 	
 	if Global.existe_save():
 		Global.carregar_jogo()

@@ -87,3 +87,6 @@ lint/tmp/
 
 /app/google-services.json
 /Makefile
+
+.vscode
+Teste.tscn

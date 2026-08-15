@@ -17,6 +17,8 @@ func _ready():
 func detectar_dispositivo():
 	var sistema = OS.get_name()
 	
+	print(sistema)
+	
 	if sistema == "Android" or sistema == "iOS":
 		tipo_dispositivo = MOBILE
 	elif sistema == "Windows" or sistema == "Linux" or sistema == "OSX":

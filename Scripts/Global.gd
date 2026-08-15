@@ -67,12 +67,9 @@ func _input(event):
 		
 		if player:
 			player_pos = player.global_position
+		salvar_jogo()
 		get_tree().quit()
 
 func existe_save() -> bool:
 	var arquivo = File.new()
 	return arquivo.file_exists(caminho_save)
-
-
-
-
