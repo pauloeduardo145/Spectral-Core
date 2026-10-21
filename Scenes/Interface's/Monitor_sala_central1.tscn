@@ -6,7 +6,7 @@
 
 [node name="Monitor_sala_central1" type="CanvasLayer"]
 script = ExtResource( 1 )
-ligado_path = NodePath("LigaDesliga")
+ligado_path = NodePath("Root/ForaMonitor/ColorRect")
 
 [node name="Root" type="Control" parent="."]
 anchor_right = 1.0

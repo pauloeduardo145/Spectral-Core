@@ -17,11 +17,16 @@ var slot_selecionado = 0
 func _ready():
 	#if DeviceManager.tipo_dispositivo != DeviceManager.MOBILE:
 	#	$Virtualjoystick.visible = false
-	Hud.visible = false
+	visible = false
 	vida_script.vida_bar = $vida/bar
 	vida_script.label_vida = $print
 
 	randomize()
+
+# Chamado pelo Main depois de carregar/criar a partida. Antes isso rodava no
+# _ready do autoload (ao abrir o jogo): o ID mostrado e o presente eram gerados
+# antes do "Novo Jogo"/"Continuar" e ficavam diferentes do Global.jogador_id.
+func iniciar_partida():
 	if Global.jogador_id == 0:
 		Global.jogador_id = gerar_id()
 	$"ID/Numero".text = str(Global.jogador_id)
@@ -29,7 +34,9 @@ func _ready():
 	entregar_presente()  # entrega automaticamente
 
 func _physics_process(_delta):
-	Global.tempo_total += _delta
+	# O HUD é autoload e roda desde o menu: só conta o tempo durante o jogo
+	if visible:
+		Global.tempo_total += _delta
 	atualizar_texto()
 	atualizar_ui()
 	vida_script.limitar_vida()
@@ -47,7 +54,10 @@ func atualizar_texto():
 func gerar_id():
 	var minimo = 1000000000
 	var maximo = 9999999999
-	return minimo + randi() % (maximo - minimo + 1)
+	# randi() só vai até ~4,29 bilhões: o antigo "randi() % faixa" nunca passava
+	# de ~5,29 bilhões. Combinando dois randi() cobre a faixa inteira.
+	var aleatorio = ((randi() & 0x7FFFFFFF) << 32) | randi()
+	return minimo + aleatorio % (maximo - minimo + 1)
 
 func soma_digitos(id_numero):
 	var soma = 0

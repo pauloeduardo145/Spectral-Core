@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Rosehot.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/F_numero.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Fade.gd" type="Script" id=4]
 [ext_resource path="res://Assets/inventario_fundo.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Highlight.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 2 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -205,3 +211,18 @@ stretch_mode = 1
 position = Vector2( 15.75, 17.5 )
 scale = Vector2( 2.21875, 2.3125 )
 texture = ExtResource( 8 )
+
+[node name="F_mortos" type="Node2D" parent="."]
+position = Vector2( 25, 40 )
+
+[node name="Sprite" type="Sprite" parent="F_mortos"]
+texture = ExtResource( 8 )
+
+[node name="F_numero" type="Label" parent="F_mortos"]
+margin_left = 13.0
+margin_top = -8.0
+margin_right = 53.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.679999, 0.56 )
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 3 )

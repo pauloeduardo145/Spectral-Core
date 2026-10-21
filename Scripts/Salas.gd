@@ -21,7 +21,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not ja_spawnou:
-		call_deferred("spawn_fantasmas", 5)
+		call_deferred("spawn_fantasmas", 3)
 		ja_spawnou = true
 
 func _on_body_exited(body):
@@ -31,7 +31,7 @@ func _on_body_exited(body):
 
 func remover_fantasmas():
 	for fantasma in fantasmas_spawnados:
-		if is_instance_valid(fantasma):
+		if is_instance_valid(fantasma) and not fantasma.is_in_group("aliado"):
 			fantasma.call_deferred("queue_free")
 	
 	fantasmas_spawnados.clear()

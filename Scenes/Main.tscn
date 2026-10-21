@@ -314,12 +314,13 @@ shape = SubResource( 1 )
 visible = false
 
 [node name="Spawn" type="Position2D" parent="."]
-position = Vector2( 344, 314 )
+position = Vector2( 487, 90 )
 
 [node name="Area_spawn_salas" type="Node" parent="."]
 
 [node name="sala_norte" type="Area2D" parent="Area_spawn_salas"]
 visible = false
+position = Vector2( 36, 32 )
 collision_layer = 4
 script = ExtResource( 10 )
 nome_sala = "sala_norte"
@@ -348,7 +349,7 @@ script = ExtResource( 10 )
 nome_sala = "sala_leste"
 
 [node name="colison" type="CollisionShape2D" parent="Area_spawn_salas/sala_leste"]
-position = Vector2( 1022, 375 )
+position = Vector2( 1002, 362 )
 shape = SubResource( 2 )
 disabled = true
 
@@ -359,7 +360,7 @@ script = ExtResource( 10 )
 nome_sala = "sala_oeste"
 
 [node name="colison" type="CollisionShape2D" parent="Area_spawn_salas/sala_oeste"]
-position = Vector2( 38, 359 )
+position = Vector2( 142, 371 )
 shape = SubResource( 2 )
 disabled = true
 

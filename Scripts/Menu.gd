@@ -4,14 +4,12 @@ var PopupAviso = preload("res://Scenes/PopupAviso.tscn")
 
 func verificar_save():
 	var botao_continue = get_node("ButtonsContainer/Continue")
-	if not Global.existe_save():
-		botao_continue.disabled = true
-		botao_continue.visible = false
-
-func _physics_process(_delta):
-		verificar_save()
+	var tem_save = Global.existe_save()
+	botao_continue.disabled = not tem_save
+	botao_continue.visible = tem_save
 
 func _ready() -> void:
+	verificar_save()
 	for button in get_tree().get_nodes_in_group("button"):
 		button.connect("pressed", self, "on_button_pressed", [button])
 		
@@ -26,12 +24,10 @@ func on_button_pressed(button: Button) -> void:
 					get_tree().change_scene("res://Scenes/Main.tscn")
 		"Controls":
 			var aviso = PopupAviso.instance()
-			Global.salvar_jogo()
 			add_child(aviso)
 			yield(get_tree().create_timer(2), "timeout")
 			aviso.queue_free()
 		"Quit":
-			Global.salvar_jogo()
 			get_tree().quit()
 		"Sob":
 			var aviso = PopupAviso.instance()

@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 const SPEED = 300
+const RAIO_BEIJO = 70.0
+
+var fantasmas_eliminados = 0;
 
 var aspirador = false
 var motion = Vector2()
@@ -22,6 +25,9 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("f"):
 		usar()
+	
+	if Input.is_action_just_pressed("Bejar"):
+		bejar()
 
 	# Movimento
 	if Input.is_action_pressed("ui_up"):
@@ -95,5 +101,30 @@ func usar_aspirador():
 		while alvo != null:
 			if alvo.is_in_group("fantasma"):
 				alvo.queue_free()
+				Global.fantasmas_eliminados += 1
 				return
 			alvo = alvo.get_parent()
+
+func bejar():
+	# Pega o fantasma hostil mais próximo dentro do alcance
+	var alvo = null
+	var menor_distancia = RAIO_BEIJO
+	
+	for fantasma in get_tree().get_nodes_in_group("fantasma"):
+		var d = global_position.distance_to(fantasma.global_position)
+		if d <= menor_distancia:
+			menor_distancia = d
+			alvo = fantasma
+	
+	if alvo == null:
+		print("Nenhum fantasma perto para beijar")
+		return
+	
+	if alvo.limite_aliados_atingido():
+		print("Limite de aliados atingido (máx. 3)")
+		return
+	
+	if alvo.tentar_aliar():
+		print("O fantasma virou aliado!")
+	else:
+		print("O fantasma não aceitou (ou ainda está em cooldown)")
