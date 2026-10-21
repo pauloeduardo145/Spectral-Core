@@ -3,8 +3,6 @@ extends KinematicBody2D
 const SPEED = 300
 const RAIO_BEIJO = 70.0
 
-var fantasmas_eliminados = 0;
-
 var aspirador = false
 var motion = Vector2()
 var fantasma_perto = null
@@ -83,10 +81,7 @@ func slot():
 func usar():
 	var item = InventarioManager.slots[InventarioManager.slot_selecionado]
 	
-	print("ITEM:",item)
-	
 	if item == null:
-		print("Slot vazio")
 		return
 	
 	if item == "Aspirador":

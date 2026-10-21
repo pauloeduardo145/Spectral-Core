@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var label = $Label
+onready var ligado = $Ligado/Label
 
 onready var slots_ui = [
 	$Control/HBoxContainer/Slot0,
@@ -15,17 +16,12 @@ var presente = ""
 var slot_selecionado = 0
 
 func _ready():
-	#if DeviceManager.tipo_dispositivo != DeviceManager.MOBILE:
-	#	$Virtualjoystick.visible = false
 	visible = false
 	vida_script.vida_bar = $vida/bar
 	vida_script.label_vida = $print
 
 	randomize()
 
-# Chamado pelo Main depois de carregar/criar a partida. Antes isso rodava no
-# _ready do autoload (ao abrir o jogo): o ID mostrado e o presente eram gerados
-# antes do "Novo Jogo"/"Continuar" e ficavam diferentes do Global.jogador_id.
 func iniciar_partida():
 	if Global.jogador_id == 0:
 		Global.jogador_id = gerar_id()
@@ -40,6 +36,9 @@ func _physics_process(_delta):
 	atualizar_texto()
 	atualizar_ui()
 	vida_script.limitar_vida()
+
+	if EnergiaManeger.ligado == true:
+		ligado.text = str("1")
 
 
 func atualizar_texto():

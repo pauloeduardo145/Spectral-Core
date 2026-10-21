@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scripts/InterfaceControle2.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/InterfaceControle.gd" type="Script" id=2]
 
 [node name="InterfaceControle2" type="CanvasLayer" groups=["ui"]]
 pause_mode = 2
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Painel" type="Control" parent="."]
 anchor_left = 0.5

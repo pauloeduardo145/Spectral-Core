@@ -226,3 +226,15 @@ margin_bottom = 20.0
 rect_scale = Vector2( 0.679999, 0.56 )
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 3 )
+
+[node name="Ligado" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 57.0
+margin_right = 59.0
+margin_bottom = 71.0
+text = "Ligado:"
+
+[node name="Label" type="Label" parent="Ligado"]
+margin_left = 44.0
+margin_right = 84.0
+margin_bottom = 14.0

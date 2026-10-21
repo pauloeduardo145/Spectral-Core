@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scripts/InterfaceControle4.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/InterfaceControle.gd" type="Script" id=2]
 
 [node name="InterfaceControle4" type="CanvasLayer" groups=["ui"]]
 pause_mode = 2
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Painel" type="Control" parent="."]
 anchor_left = 0.5
@@ -55,27 +55,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -118.0
-margin_top = -30.0
-margin_right = -78.0
-margin_bottom = 10.0
+margin_left = -18.0
+margin_top = -20.0
+margin_right = 22.0
+margin_bottom = 20.0
 color = Color( 1, 0.00392157, 0.00392157, 1 )
 
 [node name="desligado" type="ColorRect" parent="Fundo"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 52.0
-margin_top = -32.0
-margin_right = 52.0
-margin_bottom = -32.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="ligado" type="ColorRect" parent="Fundo"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 102.0
-margin_top = 20.0
-margin_right = 102.0
-margin_bottom = 20.0
 
 [connection signal="pressed" from="Painel/FECHAR" to="." method="_on_FECHAR_pressed"]
