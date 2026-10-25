@@ -51,15 +51,15 @@ margin_top = -154.0
 margin_right = 216.0
 margin_bottom = -6.0
 
-[node name="NewGame" parent="ButtonsContainer" instance=ExtResource( 1 )]
+[node name="Continue" parent="ButtonsContainer" instance=ExtResource( 1 )]
 margin_right = 200.0
 margin_bottom = 34.0
+text = "Continuar"
 
-[node name="Continue" parent="ButtonsContainer" instance=ExtResource( 1 )]
+[node name="NewGame" parent="ButtonsContainer" instance=ExtResource( 1 )]
 margin_top = 38.0
 margin_right = 200.0
 margin_bottom = 72.0
-text = "Continuar"
 
 [node name="Controls" parent="ButtonsContainer" instance=ExtResource( 1 )]
 margin_top = 76.0

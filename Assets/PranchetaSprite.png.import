@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base monitor.png-2da9e07411ff9288e78a4b5ff5df9ddf.stex"
+path="res://.import/PranchetaSprite.png-88a1c85024370b284d2fe3065603c4b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/base monitor.png"
-dest_files=[ "res://.import/base monitor.png-2da9e07411ff9288e78a4b5ff5df9ddf.stex" ]
+source_file="res://Assets/PranchetaSprite.png"
+dest_files=[ "res://.import/PranchetaSprite.png-88a1c85024370b284d2fe3065603c4b1.stex" ]
 
 [params]
 

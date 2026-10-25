@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base moldura.png-7a2192f36ea70c21e452b21998c5078c.stex"
+path="res://.import/prancheta.png-f5ffc45dd9aa649641080f8b3b2b3798.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/base moldura.png"
-dest_files=[ "res://.import/base moldura.png-7a2192f36ea70c21e452b21998c5078c.stex" ]
+source_file="res://Assets/prancheta/prancheta.png"
+dest_files=[ "res://.import/prancheta.png-f5ffc45dd9aa649641080f8b3b2b3798.stex" ]
 
 [params]
 

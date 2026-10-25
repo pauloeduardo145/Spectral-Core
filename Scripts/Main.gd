@@ -100,6 +100,12 @@ func criar_area_sala_sul(areas):
 	areas.add_child(area)
 
 func remover_itens_ja_coletados():
+	if Global.tem_prancheta:
+		var prancheta = get_node_or_null("Prancheta")
+
+		if prancheta != null:
+			prancheta.queue_free()
+
 	var itens = get_node_or_null("Itens")
 	if itens == null:
 		return

@@ -5,10 +5,6 @@ onready var ligado = get_node(ligado_path)
 onready var texto = $Root/ForaMonitor/Label
 onready var texto2 = $Root/ForaMonitor/Label2
 
-
-func _ready():
-	print(ligado)
-
 func _process(_delta):
 	texto2.text = str(EnergiaManeger.energia_atual)
 

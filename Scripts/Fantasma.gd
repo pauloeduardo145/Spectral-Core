@@ -23,8 +23,8 @@ var vida := VIDA_ALIADO
 var tempo_flash := 0.0
 var item_carregado = null      # item que o fantasma carrega (null = nenhum)
 
-const ITENS_POSSIVEIS = ["Chave de fenda", "Chave Universal"]
-const CHANCE_CARREGAR_ITEM = 0.5   # chance de um fantasma nascer carregando item
+const ITENS_POSSIVEIS = ["Chave Universal"]
+const CHANCE_CARREGAR_ITEM = 0.1   # chance de um fantasma nascer carregando item
 
 const VELOCIDADE_ALIADO = 120
 const DISTANCIA_SEGUIR = 60.0      # o aliado para de andar quando chega perto
@@ -221,5 +221,4 @@ func comportamento_aliado():
 func entregar_item():
 	# Se o inventário estiver cheio, continua carregando e tenta de novo depois
 	if InventarioManager.adicionar_item(item_carregado):
-		print("Aliado entregou: ", item_carregado)
 		item_carregado = null

@@ -17,12 +17,10 @@ func _on_FECHAR_pressed():
 
 func _on_ligar_pressed():
 	EnergiaManeger.energia_atual = clamp(EnergiaManeger.energia_atual + 1, EnergiaManeger.energia_min, EnergiaManeger.energia_max)
-	print(EnergiaManeger.energia_atual)
 	EnergiaManeger.ligado = EnergiaManeger.energia_atual > EnergiaManeger.energia_min
 	Global.salvar_jogo()
 
 func _on_desligar_pressed():
 	EnergiaManeger.energia_atual = clamp(EnergiaManeger.energia_atual - 1, EnergiaManeger.energia_min, EnergiaManeger.energia_max)
-	print(EnergiaManeger.energia_atual)
 	EnergiaManeger.ligado = EnergiaManeger.energia_atual > EnergiaManeger.energia_min
 	Global.salvar_jogo()

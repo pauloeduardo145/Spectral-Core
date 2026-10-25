@@ -1,6 +1,5 @@
 extends Node
 
-
 var vida_bar = null
 var label_vida = null
 var TimerRegeneracao = null
@@ -111,6 +110,8 @@ func morrer():
 		return
 	morto = true
 	vida_atual = vida_minima
+
+	
 	
 	yield(get_tree().create_timer(2), "timeout")
 	

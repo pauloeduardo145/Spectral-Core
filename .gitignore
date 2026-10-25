@@ -90,3 +90,6 @@ lint/tmp/
 
 .vscode
 Teste.tscn
+.import
+.gradle
+build

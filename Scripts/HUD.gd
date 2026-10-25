@@ -2,6 +2,7 @@ extends CanvasLayer
 
 onready var label = $Label
 onready var ligado = $Ligado/Label
+onready var Prancheta = $Prancheta
 
 onready var slots_ui = [
 	$Control/HBoxContainer/Slot0,
@@ -16,6 +17,7 @@ var presente = ""
 var slot_selecionado = 0
 
 func _ready():
+	Prancheta.visible = false
 	visible = false
 	vida_script.vida_bar = $vida/bar
 	vida_script.label_vida = $print
@@ -38,7 +40,9 @@ func _physics_process(_delta):
 	vida_script.limitar_vida()
 
 	if EnergiaManeger.ligado == true:
-		ligado.text = str("1")
+		ligado.text = str("ligado")
+	else:
+		ligado.text = str("desligado")
 
 
 func atualizar_texto():
@@ -85,7 +89,6 @@ func entregar_presente():
 
 func salvar_manual():
 	Global.salvar_jogo()
-	print("Save manual realizado.")
 
 
 func atualizar_ui():

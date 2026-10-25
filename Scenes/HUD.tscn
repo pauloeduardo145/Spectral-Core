@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Rosehot.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/F_numero.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Fade.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Prancheta.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/inventario_fundo.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Highlight.png" type="Texture" id=8]
 
@@ -232,9 +233,12 @@ margin_left = 19.0
 margin_top = 57.0
 margin_right = 59.0
 margin_bottom = 71.0
-text = "Ligado:"
+text = "Estado energia: "
 
 [node name="Label" type="Label" parent="Ligado"]
-margin_left = 44.0
-margin_right = 84.0
+margin_left = 99.0
+margin_right = 139.0
 margin_bottom = 14.0
+
+[node name="Prancheta" parent="." instance=ExtResource( 5 )]
+visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/aspirador.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Salas/SalaNorte.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Scripts/Salas.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Salas/SalaSul.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Ferramentas/Chave de fenda.png" type="Texture" id=12]
+[ext_resource path="res://Assets/PranchetaSprite.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/PranchetaSprite.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 20, 14.5 )
@@ -30,6 +32,8 @@ extents = Vector2( 19.0419, 17.0726 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 160, 160 )
+
+[sub_resource type="RectangleShape2D" id=10]
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -314,7 +318,7 @@ shape = SubResource( 1 )
 visible = false
 
 [node name="Spawn" type="Position2D" parent="."]
-position = Vector2( 487, 90 )
+position = Vector2( 561, 271 )
 
 [node name="Area_spawn_salas" type="Node" parent="."]
 
@@ -363,6 +367,16 @@ nome_sala = "sala_oeste"
 position = Vector2( 142, 371 )
 shape = SubResource( 2 )
 disabled = true
+
+[node name="Prancheta" type="Area2D" parent="."]
+position = Vector2( 521, 278 )
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Prancheta"]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prancheta"]
+shape = SubResource( 10 )
 
 [node name="Itens" type="Node" parent="."]
 

@@ -112,11 +112,9 @@ func bejar():
 			alvo = fantasma
 	
 	if alvo == null:
-		print("Nenhum fantasma perto para beijar")
 		return
 	
 	if alvo.limite_aliados_atingido():
-		print("Limite de aliados atingido (máx. 3)")
 		return
 	
 	if alvo.tentar_aliar():

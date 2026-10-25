@@ -9,6 +9,8 @@ var caminho_save = "user://save_game.dat"
 var caminho_save_aliados = "user://save_aliados.dat"   # aliados + itens que carregam
 var fantasmas_eliminados = 0
 
+var tem_prancheta := false
+
 func _ready():
 	pass
 
@@ -33,6 +35,7 @@ func salvar_jogo():
 			"jogador_id": jogador_id,
 			"player_pos": player_pos,
 			"fantasmas_eliminados": fantasmas_eliminados,
+			"prancheta": tem_prancheta,
 			"vida_atual": vida_script.vida_atual,
 			"vida_visual": vida_script.vida_visual,
 			"energia_atual": EnergiaManeger.energia_atual,
@@ -94,6 +97,8 @@ func carregar_jogo() -> bool:
 	vida_script.vida_atual = dados.get("vida_atual", vida_script.vida_maxima)
 	vida_script.vida_visual = dados.get("vida_visual", vida_script.vida_atual)
 	EnergiaManeger.energia_atual = dados.get("energia_atual", EnergiaManeger.energia_min)
+	EnergiaManeger.ligado = EnergiaManeger.energia_atual > EnergiaManeger.energia_min
+	tem_prancheta = dados.get("prancheta", false)
 
 	var slots = dados.get("slots", null)
 	if typeof(slots) == TYPE_ARRAY and slots.size() == InventarioManager.slots.size():
@@ -121,8 +126,10 @@ func novo_jogo():
 	vida_script.vida_visual = vida_script.vida_maxima
 	vida_script.morto = false
 	EnergiaManeger.energia_atual = EnergiaManeger.energia_min
+	EnergiaManeger.ligado = false
 	InventarioManager.slots = [null, null, null, null, null]
 	InventarioManager.slot_selecionado = 0
+	tem_prancheta = false
 
 	var dir = Directory.new()
 	if dir.file_exists(caminho_save):
