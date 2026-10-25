@@ -16,7 +16,7 @@ var vida_minima = 0.0
 var regenerando = false
 var morto = false # evita morrer/respawnar várias vezes ao mesmo tempo
 var tempo_para_regenerar = 3.0 #segundos
-var velocidade_regeneracao = 1.0 #vida por segundo
+var velocidade_regeneracao = 5.0 #vida por segundo
 
 #cores
 var verde = Color(0, 1, 0)
@@ -111,7 +111,7 @@ func morrer():
 	morto = true
 	vida_atual = vida_minima
 
-	
+
 	
 	yield(get_tree().create_timer(2), "timeout")
 	
