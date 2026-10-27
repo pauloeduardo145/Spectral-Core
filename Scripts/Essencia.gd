@@ -4,11 +4,13 @@ var player = null
 var velocidade = 0.0
 var aceleracao = 600.0
 var velocidade_max = 400.0
-
-func _ready():
-	connect("body_entered", self, "_on_Essencia_body_entered")
+var atraso = 0.4
 
 func _physics_process(delta):
+	if atraso > 0:
+		atraso -= delta
+		return
+
 	if player == null or not is_instance_valid(player):
 		return
 	
