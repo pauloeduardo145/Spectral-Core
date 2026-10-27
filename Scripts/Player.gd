@@ -8,6 +8,7 @@ var motion = Vector2()
 var fantasma_perto = null
 var ultima_direcao = "down"
 var chance_drop = 25
+var cena_essencia = preload("res://Scenes/Essencia.tscn")
 
 func _ready():
 	$anim.play("idle_down")
@@ -96,9 +97,10 @@ func usar_aspirador():
 		var alvo = body
 		while alvo != null:
 			if alvo.is_in_group("fantasma"):
+				var posicao_fantasma = alvo.global_position
 				alvo.queue_free()
 				Global.fantasmas_eliminados += 1
-				ao_aspirar()
+				ao_aspirar(posicao_fantasma)
 				return
 			alvo = alvo.get_parent()
 
@@ -124,10 +126,12 @@ func bejar():
 	else:
 		print("O fantasma não aceitou (ou ainda está em cooldown)")
 
-func dropar_item():
-	print("Dropou")
-	Global.essencia_fantasma = Global.essencia_fantasma + 1
+func dropar_item(posicao_fantasma):
+	var essencia = cena_essencia.instance()
+	get_parent().add_child(essencia)
+	essencia.global_position = posicao_fantasma
+	
 
-func ao_aspirar():
+func ao_aspirar(posicao_fantasma):
 	if randf() * 100 < chance_drop:
-		dropar_item()
+		dropar_item(posicao_fantasma)

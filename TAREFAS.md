@@ -43,7 +43,7 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [x] Contador de essência no `Global`, no HUD e no save
 - [x] Chance de a essência cair ao aspirar (variável `export` ajustável)
 - [ ] Melhorar a eficiência do aspirador (alcance, tempo, feedback visual)
-- [ ] Decidir se só o aspirador gera essência (evita ciclo infinito)
+- [x] Decidir se só o aspirador gera essência (evita ciclo infinito)
 - [ ] (Opcional, depois da fatia) Arma que usa essência como munição; função a escolher: tiro à distância, atordoante ou apaziguador
 
 ## MUNDO
