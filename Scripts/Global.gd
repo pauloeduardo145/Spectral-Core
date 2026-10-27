@@ -7,7 +7,9 @@ var pos_spawn := Vector2.ZERO
 var spawn_position = null
 var caminho_save = "user://save_game.dat"
 var caminho_save_aliados = "user://save_aliados.dat"   # aliados + itens que carregam
+
 var fantasmas_eliminados = 0
+export var essencia_fantasma = 0
 
 var tem_prancheta := false
 
@@ -39,6 +41,7 @@ func salvar_jogo():
 			"vida_atual": vida_script.vida_atual,
 			"vida_visual": vida_script.vida_visual,
 			"energia_atual": EnergiaManeger.energia_atual,
+			"essencia_fantasma": essencia_fantasma,
 			"slots": InventarioManager.slots}
 		arquivo.store_var(dados)
 		arquivo.close()
@@ -99,6 +102,7 @@ func carregar_jogo() -> bool:
 	EnergiaManeger.energia_atual = dados.get("energia_atual", EnergiaManeger.energia_min)
 	EnergiaManeger.ligado = EnergiaManeger.energia_atual > EnergiaManeger.energia_min
 	tem_prancheta = dados.get("prancheta", false)
+	essencia_fantasma = dados.get("essencia_fantasma", 0)
 
 	var slots = dados.get("slots", null)
 	if typeof(slots) == TYPE_ARRAY and slots.size() == InventarioManager.slots.size():
@@ -130,6 +134,7 @@ func novo_jogo():
 	InventarioManager.slots = [null, null, null, null, null]
 	InventarioManager.slot_selecionado = 0
 	tem_prancheta = false
+	essencia_fantasma = 0
 
 	var dir = Directory.new()
 	if dir.file_exists(caminho_save):

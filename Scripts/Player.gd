@@ -7,6 +7,7 @@ var aspirador = false
 var motion = Vector2()
 var fantasma_perto = null
 var ultima_direcao = "down"
+var chance_drop = 25
 
 func _ready():
 	$anim.play("idle_down")
@@ -97,6 +98,7 @@ func usar_aspirador():
 			if alvo.is_in_group("fantasma"):
 				alvo.queue_free()
 				Global.fantasmas_eliminados += 1
+				ao_aspirar()
 				return
 			alvo = alvo.get_parent()
 
@@ -121,3 +123,11 @@ func bejar():
 		print("O fantasma virou aliado!")
 	else:
 		print("O fantasma não aceitou (ou ainda está em cooldown)")
+
+func dropar_item():
+	print("Dropou")
+	Global.essencia_fantasma = Global.essencia_fantasma + 1
+
+func ao_aspirar():
+	if randf() * 100 < chance_drop:
+		dropar_item()

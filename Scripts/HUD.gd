@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var label = $Label
 onready var ligado = $Ligado/Label
 onready var Prancheta = $Prancheta
+onready var essencia_fantasma = $Essencia_Sprite/Essencia_qtd
 
 onready var slots_ui = [
 	$Control/HBoxContainer/Slot0,
@@ -38,6 +39,8 @@ func _physics_process(_delta):
 	atualizar_texto()
 	atualizar_ui()
 	vida_script.limitar_vida()
+
+	essencia_fantasma.text = str(Global.essencia_fantasma)
 
 	if EnergiaManeger.ligado == true:
 		ligado.text = str("ligado")

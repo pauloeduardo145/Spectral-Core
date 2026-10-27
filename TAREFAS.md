@@ -39,9 +39,9 @@ Se isso funcionar do início ao fim, o resto é repetição.
 ---
 
 ## RECURSOS
-- [ ] Definir o que o fantasma aspirado rende (ex.: **essência de fantasma**)
-- [ ] Contador de essência no `Global`, no HUD e no save
-- [ ] Chance de a essência cair ao aspirar (variável `export` ajustável)
+- [x] Definir o que o fantasma aspirado rende (ex.: **essência de fantasma**)
+- [x] Contador de essência no `Global`, no HUD e no save
+- [x] Chance de a essência cair ao aspirar (variável `export` ajustável)
 - [ ] Melhorar a eficiência do aspirador (alcance, tempo, feedback visual)
 - [ ] Decidir se só o aspirador gera essência (evita ciclo infinito)
 - [ ] (Opcional, depois da fatia) Arma que usa essência como munição; função a escolher: tiro à distância, atordoante ou apaziguador
@@ -73,8 +73,8 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [ ] Arte: silhueta com cabelo longo e vestido que vira névoa; paleta curta; transparência por `modulate`
 - [ ] Animação simples (oscilação por código ou 2 a 4 quadros)
 - [ ] Variações de comportamento além de corajoso/medroso
-- [ ] Tratar caso `corajoso == medroso` (hoje o fantasma não muda de direção)
-- [ ] Revisar `Salas.gd`: fantasmas somem ao sair da sala e reaparecem ao voltar
+- [x] Tratar caso `corajoso == medroso` (hoje o fantasma não muda de direção)
+- [x] Revisar `Salas.gd`: fantasmas somem ao sair da sala e reaparecem ao voltar
 
 ## MISSÕES (PRANCHETA)
 - [ ] Lista de missões no `Global` (id, texto, estado concluído/pendente) e no save
@@ -97,13 +97,13 @@ Se isso funcionar do início ao fim, o resto é repetição.
 ---
 
 ## LIMPEZA TÉCNICA
-- [ ] Renomear `TAREFAS.rm` para `TAREFAS.md` (o GitHub passa a renderizar)
+- [x] Renomear `TAREFAS.rm` para `TAREFAS.md` (o GitHub passa a renderizar)
 - [ ] `F_numero.gd` depende de `/root/Main/Player`; o valor vem do `Global`, a condição pode ser desnecessária
 - [ ] Pasta `Inimigos` vazia: usar ou remover
-- [ ] Confirmar que `.gradle` e `build` estão no `.gitignore`
+- [x] Confirmar que `.gradle` e `build` estão no `.gitignore`
 - [ ] `print` de depuração em `Player.gd` (`bejar`) para retirar
-- [ ] Revisar duplicações e nomes (`EnergiaManeger`, `Bejar`)
-- [ ] Teste do ciclo de save: novo jogo, continuar, sair com Esc
+- [x] Revisar duplicações e nomes (`EnergiaManeger`, `Bejar`)
+- [x] Teste do ciclo de save: novo jogo, continuar, sair com Esc
 
 ---
 
