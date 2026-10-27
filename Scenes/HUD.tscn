@@ -221,6 +221,9 @@ margin_top = -8.0
 margin_right = 53.0
 margin_bottom = 20.0
 rect_scale = Vector2( 0.679999, 0.56 )
+text = "1"
+align = 1
+valign = 1
 script = ExtResource( 3 )
 
 [node name="Ligado" type="Label" parent="."]
