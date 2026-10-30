@@ -20,6 +20,7 @@ func salvar():
 
 # Andar
 func _physics_process(_delta):
+	limpar_slot()
 	slot()
 	motion = Vector2.ZERO
 	
@@ -67,6 +68,10 @@ func _physics_process(_delta):
 	move_and_slide(motion)
 # PAULO DO FUTURO NAO IMPOTA O QUE ACONTEÇAR
 #NAO MEXA NO CODIGO DO JOGO
+
+func limpar_slot():
+	if Input.is_action_just_pressed("limpar_slot"):
+		InventarioManager.slots[InventarioManager.slot_selecionado] = null
 
 func slot():
 	if Input.is_action_just_pressed("slot_1"):
