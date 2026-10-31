@@ -16,9 +16,9 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [ ] 2. Um gerador que falha (estado: funcionando / com defeito / consertado)
 - [ ] 3. Um defeito diagnosticável (o jogador descobre qual é a causa)
 - [ ] 4. Uma peça fabricável (matéria-prima + bancada + receita)
-- [ ] 5. Consertar o gerador usando a peça e uma ferramenta
+- [x] 5. Consertar o gerador usando a peça e uma ferramenta
 - [ ] 6. Um perigo simples (sucata voadora)
-- [ ] 7. Uma missão real na prancheta ligada a esse gerador
+- [x] 7. Uma missão real na prancheta ligada a esse gerador
 - [ ] 8. Condição de fim de jogo para essa fatia (ex.: gerador consertado = vitória)
 
 ---
@@ -35,6 +35,7 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [x] Energia ligar/desligar no painel da sala oeste, com `ligado` salvo
 - [x] Prancheta coletável, abre e fecha com E, posse salva e restaurada, some do chão ao continuar
 - [x] Versionamento no GitHub
+- [x] Limpar slot com a tecla Q
 
 ---
 
@@ -52,8 +53,11 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [ ] Geradores: um por sala (começar por um só)
 - [ ] Salas secretas: ao menos uma, aberta pela Chave Universal
 - [ ] Dar uso às ferramentas (Chave de fenda, Chave Universal, Martelo, Pé de Cabra)
-- [ ] Bancada de fabricação e receitas de peças
+- [x] Bancada de fabricação e receitas de peças
 - [ ] Matéria-prima espalhada pelo laboratório (sucata, fios, fusíveis)
+- [ ] Item "Sucata": coletável no mapa e textura no HUD (`get_textura_do_item`)
+- [ ] Estado do gerador (funcionando/estragado/consertado) no `Global` e no save
+- [ ] Mesa de fabricação: ao sair da área, usar `fechar()` para devolver os itens da grade
 
 ## PERIGOS
 - [ ] Sucata voadora (primeiro perigo)
@@ -77,11 +81,16 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [x] Revisar `Salas.gd`: fantasmas somem ao sair da sala e reaparecem ao voltar
 
 ## MISSÕES (PRANCHETA)
-- [ ] Lista de missões no `Global` (id, texto, estado concluído/pendente) e no save
-- [ ] A prancheta lê a lista e mostra as tarefas (hoje tem só "Primeiro" e "Segundo")
-- [ ] Marcar missão concluída (ícone ou riscado)
+- [x] Lista de missões no `Global` (id, texto, estado concluído/pendente) e no save
+- [x] A prancheta lê a lista e mostra as tarefas (hoje tem só "Primeiro" e "Segundo")
+- [x] Marcar missão concluída (ícone ou riscado)
 - [ ] Primeira missão: encontrar a prancheta; seguintes ligadas à fatia vertical
 - [ ] Esconder a prancheta ao iniciar um novo jogo (conferir `iniciar_partida` no HUD)
+- [ ] Chamar `MissoesManager.registrar` ao consertar o gerador e ao coletar essência
+- [ ] Campo `categoria` (principal/secundaria) em cada missão
+- [ ] Filtrar missões pelos `requisitos` (ocultar as que ainda não estão disponíveis)
+- [ ] Atualizar a prancheta ao concluir (sinal `missao_concluida`) e avisar "Missão concluída!"
+- [ ] Trocar as missões de teste por missões reais
 
 ## FIM DE JOGO
 - [ ] Definir a condição de vitória (todos os geradores consertados)
@@ -104,6 +113,7 @@ Se isso funcionar do início ao fim, o resto é repetição.
 - [ ] `print` de depuração em `Player.gd` (`bejar`) para retirar
 - [x] Revisar duplicações e nomes (`EnergiaManeger`, `Bejar`)
 - [x] Teste do ciclo de save: novo jogo, continuar, sair com Esc
+- [ ] `MissoesManager.gd`: padronizar indentação em tabs
 
 ---
 
