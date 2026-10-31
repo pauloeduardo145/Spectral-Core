@@ -22,6 +22,7 @@ EnergiaManeger="*res://Scripts/EnergiaManeger.gd"
 InventarioManager="*res://Scripts/InventarioManager.gd"
 vida_script="*res://Scripts/vida_script.gd"
 Hud="*res://Scenes/HUD.tscn"
+MissoesManager="*res://Scripts/MissoesManager.gd"
 
 [display]
 

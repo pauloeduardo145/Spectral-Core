@@ -20,6 +20,7 @@ func _physics_process(delta):
 
 	if global_position.distance_to(player.global_position) < 12:
 		Global.essencia_fantasma += 1
+		MissoesManager.registrar("pegar", "essencia")
 		queue_free()
 
 
