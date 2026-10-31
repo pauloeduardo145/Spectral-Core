@@ -9,7 +9,7 @@ var caminho_save = "user://save_game.dat"
 var caminho_save_aliados = "user://save_aliados.dat"   # aliados + itens que carregam
 
 var fantasmas_eliminados = 0
-export var essencia_fantasma = 0
+var essencia_fantasma = 0
 
 var tem_prancheta := false
 
@@ -42,7 +42,8 @@ func salvar_jogo():
 			"vida_visual": vida_script.vida_visual,
 			"energia_atual": EnergiaManeger.energia_atual,
 			"essencia_fantasma": essencia_fantasma,
-			"slots": InventarioManager.slots}
+			"slots": InventarioManager.slots,
+			"missoes": MissoesManager.dados_para_salvar()}
 		arquivo.store_var(dados)
 		arquivo.close()
 
@@ -103,6 +104,7 @@ func carregar_jogo() -> bool:
 	EnergiaManeger.ligado = EnergiaManeger.energia_atual > EnergiaManeger.energia_min
 	tem_prancheta = dados.get("prancheta", false)
 	essencia_fantasma = dados.get("essencia_fantasma", 0)
+	MissoesManager.carregar( dados.get("missoes", {}))
 
 	var slots = dados.get("slots", null)
 	if typeof(slots) == TYPE_ARRAY and slots.size() == InventarioManager.slots.size():
@@ -135,6 +137,7 @@ func novo_jogo():
 	InventarioManager.slot_selecionado = 0
 	tem_prancheta = false
 	essencia_fantasma = 0
+	MissoesManager.resetar()
 
 	var dir = Directory.new()
 	if dir.file_exists(caminho_save):
@@ -144,6 +147,7 @@ func novo_jogo():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
+		get_tree().call_group("craftador", "devolver_tudo")
 		salvar_jogo()  # só salva se estiver em jogo (ver salvar_jogo)
 		get_tree().quit()
 
